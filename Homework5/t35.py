@@ -23,9 +23,10 @@ def FindLostElem(file_path):
     f.close()
     l = [int(el) for el in l]
     print(f'read list is: {l}')
-    if l[0] != l[1]-1 : return l[1]-1
-    else: 
+    if l[0] != l[1]-1 : return l[1]-1 #проверяем частный случай первого элемента
+    else:   #через list comprehension не получается, частные случаи мешают
+        # return [l[i+1]-1 for i,el in enumerate(l) if el != l[i-1]+1] 
         for i in range(len(l)):
-            if l[i] != l[i+1]-1 : return l[0]+i+1
+            if l[i] != l[i+1]-1 : return l[0]+i+1  #в таком формате последний элемент тоже отображается верно
 
 print(f'lost number is {FindLostElem("Homework5/t35list.txt")}')        
