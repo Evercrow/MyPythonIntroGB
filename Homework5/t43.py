@@ -4,7 +4,6 @@
 num_list = [9,10,11,1, 2, 3, 5,7, 1, 5, 3, 10]
 
 def ShowUniques(l):
-    
     u_set =set()
     repeat_set = set()
     for i in l:
