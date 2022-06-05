@@ -17,5 +17,5 @@ while abs(temp/2) > 0 :
 bin_num =  bin_num[::-1]
 if dec_num == 1: bin_num = '0'+ bin_num
 elif dec_num == 0: bin_num = '00'
-elif dec_num < 0: bin_num = '1,' +bin_num
+elif dec_num < 0: bin_num = '1,' +bin_num  #добавим обозначение отрицательного знака, при необходимости
 print(bin_num)   
