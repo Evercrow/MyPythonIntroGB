@@ -9,14 +9,16 @@
 #хотя удалось немножко выиграть, не кодируя одинарные символы.
 #  
 #двойные, как в википедии,непонятно как расшифровать. 
-#Для декодера неясно, что такое в строке-шифре "аа" - ключ к обращению списка числа
+# Как понять декодеру: в строке-шифре "AA" - ключ к обращению списка числа
 #повторений, или же пропускаемая часть из двух символов, как одинарные? 
+
+from ctypes.wintypes import CHAR
+
 
 def EncodeRLE2(file_path):
 	f = open(file_path, 'r')
 	data = f.read()
 	f.close()
-
 	run_start =""
 	count = 1
 	data_processed = ""
@@ -32,7 +34,7 @@ def EncodeRLE2(file_path):
 				data_processed += run_start*(count)
 				count = 1
 			run_start = data[place-int(is_end)]
-		else : count +=1
+		else : count +=1	
 	file_path = str(file_path)
 	result_path = file_path[0:file_path.rfind('\\')+1]+'encoded_data.txt'
 	from pathlib import Path
@@ -52,22 +54,24 @@ def EncodeRLE2(file_path):
 def DecodeRLE2(file_path):
 	f = open(file_path, 'r')
 	enc_data = f.read()
-	enc_string = enc_data[enc_data.find(',')+1:]
-	run_data = enc_data[:enc_data.find(',')].split(" ")
-	run_data = list(map(int,run_data))
 	f.close()
+	enc_string = enc_data[enc_data.find(',')+1:] 
+	run_data = list(map(int,enc_data[:enc_data.find(',')].split(" ")))
+	
 
 	decoded = ""
 	j = 0
 	i = 0
-	while i < len(enc_string):
-		if enc_string[i] != enc_string[i+1]:
+	is_end = False
+	while i < len(enc_string)-1:
+		is_end = i== len(enc_string)
+		if enc_string[i] != enc_string[i+1-int(is_end)] :
 			decoded += enc_string[i]
 		else:
 			decoded +=enc_string[i]*run_data[j]
 			j+=1
 			i+=1
-		i+=1 
+		i+=1	 
 	file_path = str(file_path)
 	result_path = file_path[0:file_path.rfind('\\')+1]+'decoded_data.txt'
 	
@@ -83,8 +87,8 @@ def DecodeRLE2(file_path):
 
 from pathlib import Path
 
-init_path = Path("Homework6/initial_data.txt")
+init_path = Path("Homework6/t42/initial_data.txt")
 EncodeRLE2(init_path)
 
-enc_path = Path("Homework6\encoded_data.txt")
+enc_path = Path("Homework6/t42/encoded_data.txt")
 DecodeRLE2(enc_path)
