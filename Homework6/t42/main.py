@@ -14,6 +14,8 @@
 
 
 def EncodeRLE2(file_path):
+	from pathlib import Path
+	file_path = Path(file_path)
 	f = open(file_path, 'r')
 	data = f.read()
 	f.close()
@@ -35,7 +37,7 @@ def EncodeRLE2(file_path):
 		else : count +=1	
 	file_path = str(file_path)
 	result_path = file_path[0:file_path.rfind('\\')+1]+'encoded_data.txt'
-	from pathlib import Path
+	
 	f = open(Path(result_path), 'w')
 	for i in range(len(run_lengths)-1):
 		f.write(run_lengths[i]+" ")
@@ -50,6 +52,8 @@ def EncodeRLE2(file_path):
 
 
 def DecodeRLE2(file_path):
+	from pathlib import Path
+	file_path = Path(file_path)
 	f = open(file_path, 'r')
 	enc_data = f.read()
 	f.close()
@@ -73,7 +77,7 @@ def DecodeRLE2(file_path):
 	file_path = str(file_path)
 	result_path = file_path[0:file_path.rfind('\\')+1]+'decoded_data.txt'
 	
-	from pathlib import Path
+	
 	f = open(Path(result_path), 'w')
 	f.writelines(decoded)
 	f.close()
@@ -83,10 +87,8 @@ def DecodeRLE2(file_path):
 	# print(decoded)
 	print(f"Result written to '{result_path}")
 
-from pathlib import Path
-
-init_path = Path("Homework6/t42/initial_data.txt")
+init_path = "Homework6/t42/initial_data.txt"
 EncodeRLE2(init_path)
 
-enc_path = Path("Homework6/t42/encoded_data.txt")
+enc_path = "Homework6/t42/encoded_data.txt"
 DecodeRLE2(enc_path)
