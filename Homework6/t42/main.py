@@ -13,9 +13,9 @@
 #повторений, или же пропускаемая часть из двух символов, как одинарные? 
 
 
-def EncodeRLE2(file_path):
+def EncodeRLE2(file_name):
 	from pathlib import Path
-	file_path = Path(file_path)
+	file_path = Path(str(Path(__file__).parent.resolve())+"\\"+file_name)
 	f = open(file_path, 'r')
 	data = f.read()
 	f.close()
@@ -51,9 +51,9 @@ def EncodeRLE2(file_path):
 
 
 
-def DecodeRLE2(file_path):
+def DecodeRLE2(file_name):
 	from pathlib import Path
-	file_path = Path(file_path)
+	file_path = Path(str(Path(__file__).parent.resolve())+"\\"+file_name)
 	f = open(file_path, 'r')
 	enc_data = f.read()
 	f.close()
@@ -87,8 +87,8 @@ def DecodeRLE2(file_path):
 	# print(decoded)
 	print(f"Result written to '{result_path}")
 
-init_path = "Homework6/t42/initial_data.txt"
+init_path = "initial_data.txt"
 EncodeRLE2(init_path)
 
-enc_path = "Homework6/t42/encoded_data.txt"
+enc_path = "encoded_data.txt"
 DecodeRLE2(enc_path)
