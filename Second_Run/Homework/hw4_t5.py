@@ -66,4 +66,5 @@ def EquationFromCoefficients(eq_list : list):
     f.close()
     print(f"Result written to %\joined_equation.txt")
 
+
 EquationFromCoefficients(SumEquations(GatherEquations('0','1')))
