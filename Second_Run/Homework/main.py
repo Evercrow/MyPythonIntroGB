@@ -1,7 +1,10 @@
+#при чтении путей и разных ОС возникает проблема с интерпретацией слешей. Для этого используем библиотеку pathlib
+
 def CreateNewHW(hw_num,tasks_num):
-    spec_path = "/Second_Run/Homework/"
+    from pathlib import Path
+    spec_path = "Second_Run/Homework/"
     for i in range(1,int(tasks_num)+1):
-        open(spec_path+'hw'+hw_num+'_t'+str(i)+'.py','x')
+        open(Path(spec_path+'hw'+hw_num+'_t'+str(i)+'.py'),'x')
 
 if __name__ == "__main__":
     n1 = (input("Введите номер семинара: "))
