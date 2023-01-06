@@ -7,6 +7,7 @@
 
 def RandomCoefficients(k):
     from random import randint
+    #сразу добавляем коэффициент нулевой степени
     eq_list =[randint(0,100)]
     equation = str(eq_list[0])
     for i in range(1,k+1):
@@ -21,14 +22,15 @@ def RandomCoefficients(k):
     from pathlib import Path
     #здесь немного заморочусь с автонаименованием записываемого файла, чтобы использовать было проще в следующей задачке
     import glob
-    count =len(glob.glob(".\Second_Run\Homework\equation*"))
-    file_path = Path(f"Second_Run\Homework\equation{count}.txt")
+    parent_path = str(Path(__file__).parent.resolve())
+    count =len(glob.glob(parent_path+"\equation*"))
+    file_path = Path(parent_path+f"\equation{count}.txt")
     f = open(file_path, 'w')
     f.write(equation + " = 0")
     f.close()
     return eq_list
 
-if __name__ == 'main':
-    k_user = int(input("Введите степень многочлена: "))
-    # print(f"список коэффициэнтов,начиная с нулевой степени:\n{RandomCoefficients(k_user)}") 
-    print(f"список коэффициэнтов,начиная с высшей степени:\n{RandomCoefficients(k_user)[::-1]}") #так проще сравнивать с файлом
+
+k_user = int(input("Введите степень многочлена: "))
+# print(f"список коэффициэнтов,начиная с нулевой степени:\n{RandomCoefficients(k_user)}") 
+print(f"список коэффициэнтов,начиная с высшей степени:\n{RandomCoefficients(k_user)[::-1]}") #так проще сравнивать с файлом
