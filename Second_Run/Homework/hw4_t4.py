@@ -28,7 +28,7 @@ def RandomCoefficients(k):
     f.close()
     return eq_list
 
-
-k_user = int(input("Введите степень многочлена: "))
-# print(f"список коэффициэнтов,начиная с нулевой степени:\n{RandomCoefficients(k_user)}") 
-print(f"список коэффициэнтов,начиная с высшей степени:\n{RandomCoefficients(k_user)[::-1]}") #так проще сравнивать с файлом
+if __name__ == 'main':
+    k_user = int(input("Введите степень многочлена: "))
+    # print(f"список коэффициэнтов,начиная с нулевой степени:\n{RandomCoefficients(k_user)}") 
+    print(f"список коэффициэнтов,начиная с высшей степени:\n{RandomCoefficients(k_user)[::-1]}") #так проще сравнивать с файлом
