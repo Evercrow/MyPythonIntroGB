@@ -29,15 +29,19 @@ def FloatToNumSum(num):
 def ShowFactorial(N):
     print("[", end=" ")
     fact = 1
-    multiplier_list=[str(fact)] 
+    multiplier_list=[str(fact)]
+
     for i in range(1,N+1):
         fact*=i 
         if i!=N:print(fact,end=', ')
         else :print(fact,end=' ')
+
     print("] (",end="")
+
     for i in range(1,N):
         multiplier_list.append(multiplier_list[i-1]+"*"+str(i+1))
     print(*multiplier_list , sep =', ', end ='')
+    
     print(")")
 
 
@@ -61,16 +65,15 @@ def MixList(mix_list):
 
 
 
-
-user_num = float(input('Введите ваше вещественное число, дробная часть через точку:\n'))
-print(f'Cумма цифр введенного числа равна {FloatToNumSum(user_num)}')
+# user_num = float(input('Введите ваше вещественное число, дробная часть через точку:\n'))
+# print(f'Cумма цифр введенного числа равна {FloatToNumSum(user_num)}')
 
 
 fact_num = int(input("Введите число для факториала: \n"))    
 ShowFactorial(fact_num)
 
-user_list = ['Веселый пианист', 250, 3.14,"is", True , "Task", 3]
-MixList(user_list)
+# user_list = ['Веселый пианист', 250, 3.14,"is", True , "Task", 3]
+# MixList(user_list)
 
 
 

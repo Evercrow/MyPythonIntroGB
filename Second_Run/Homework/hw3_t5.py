@@ -18,5 +18,21 @@ def ShowFullFibo(last):
     nega_fib_list.append(0)
     return nega_fib_list + fib_list
 
+#через рекурсию
+def fullFibonacci(n):
+    fibonacci = [0]
+    if n == 0:
+        return fibonacci
+    elif n == 1:
+        fibonacci.insert(0,1)
+        fibonacci.append(1)
+    elif n > 1:
+        fibonacci = fullFibonacci(n - 1)
+        fibonacci.append(fullFibonacci(n - 1)[-1] + fullFibonacci(n - 2)[-1])
+        fibonacci.insert(0, fibonacci[-1] * ((-1) ** (n + 1)))
+    return fibonacci
+
+
 k = int(input("Введите номер искомого числа Фибонначи: "))
 print(ShowFullFibo(k))
+print(fullFibonacci(k))

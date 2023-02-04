@@ -27,11 +27,26 @@
 
 
 
-def concatenatio(*params): #звездочка, когда произвольное число аргументов
-    res: str = ""
-    for item in params:
-         res += item
-    return res
-print(concatenatio('a', 's', 'd', 'w'))  # asdw
-print(concatenatio('a', '1'))  # a1
-# print(concatenatio(1, 2, 3, 4)) # TypeError: ...
+# def concatenatio(*params): #звездочка, когда произвольное число аргументов
+#     res: str = ""
+#     for item in params:
+#          res += item
+#     return res
+# print(concatenatio('a', 's', 'd', 'w'))  # asdw
+# print(concatenatio('a', '1'))  # a1
+# # print(concatenatio(1, 2, 3, 4)) # TypeError: ...
+
+
+
+data = '1 2 3 5 8 15 23 38'.split()
+
+res = map(int, data)
+
+res = filter(lambda x: not x % 2, res)
+res = list(map(lambda x: (x, x**2), res))
+print(res) 
+
+import pathlib
+
+print(pathlib.Path(__file__).parent.resolve())
+print(pathlib.Path().resolve())

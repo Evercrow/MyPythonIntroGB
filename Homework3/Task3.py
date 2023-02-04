@@ -18,18 +18,18 @@ def FloatPartDiff(list):
     return max-min 
 
 
-init_list = [1.1, 1.2, 3.1, 5, 10.01] # из примера
-print(init_list, end=' => ')
-print(FloatPartDiff(init_list)//0.01/100)
+# init_list = [1.1, 1.2, 3.1, 5, 10.01] # из примера
+# print(init_list, end=' => ')
+# print(FloatPartDiff(init_list)//0.01/100)
 
 
 #Попробуем со своим списком
 from listGen import CreateShortFloatList
 
 my_list = CreateShortFloatList(5,10)
-my_list = [7.83, 0.07, 5.06, 1.28, 0.63]
 print(my_list, end=' => ')
 print('%.2f'%FloatPartDiff(my_list))
+
 
 
 # #Возникала проблема с неточностью  числа, если округлять

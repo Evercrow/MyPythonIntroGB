@@ -10,11 +10,12 @@ def createTaskListFile(N):
     from pathlib import Path
     file_path = Path("Homework5/t35list.txt")
     f = open(file_path, 'w')
+    # f.write(' '.join(str(item for item in l))) - неправильная запись ,ругается на присутствие генератора?
     for num in l:
         f.write(str(num) + ' ')
     f.close()
 
-# createTaskListFile(20)
+createTaskListFile(20)
 
 def FindLostElem(file_path):
     from pathlib import Path

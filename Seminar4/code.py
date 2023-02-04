@@ -6,15 +6,27 @@
 # Пример:
 
 # Для n = 6: {1: 4, 2: 7, 3: 10, 4: 13, 5: 16, 6: 19}
-
+## Вариант группы
 # n = int(input('Введите натуральное число '))
 # dict = {}
 # for i in range (1,n+1):
 #     dict[i] = 3*i + 1
 # print(dict)
 
+## мой вариант
+# def Create3n1Sequence(n: int):
+#     listOf3n1 = {}
+#     if n <1 : return "Вы ввели ненатуральное число"
+#     else :
+#         for i in range(1,n+1): listOf3n1[i] = 3*i+1     
+#     return listOf3n1
 
-# Примерная конструкция:
+# num = int(input('Введите число элементов: '))
+# print(Create3n1Sequence(num))
+
+
+
+# Примерная конструкция для задания словарей(препод):
 # base = {base: base **2 for I in range(7)}
 
 

@@ -11,6 +11,17 @@ while True:
     num = input("Введите десятичное число: ")
     if num =='': break
     print(f'{int(num):02b}')
+    
+
 #если число нужно запомнить, то можно использовать другой синтаксис форматирования, для работы вне print()
     # b = format(int(num),'02b')
     # print(b)
+
+a = 45
+c = a
+b = ''
+while (a != 0):
+    b += str(a % 2)
+    a //= 2
+
+print(f"{c}(DEC) = {b[::-1]}(BIN)")
